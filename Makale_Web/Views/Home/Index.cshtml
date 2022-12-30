@@ -1,0 +1,114 @@
+﻿@model List<Not>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-3">
+
+            @Html.Partial("_PartialPageKategoriler")
+        </div>
+        <div class="col-md-9">
+            <div class="row carousel-holder">
+                <div class="col-md-12">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="slide-image" src="~/Images/manzara.jpg" alt="">
+                            </div>
+                            <div class="item">
+
+                                <img class="slide-image" src="~/Images/yol.jpg" alt="">
+                            </div>
+
+                            <div class="item">
+                                <img class="slide-image" src="~/Images/sunset.jpg" alt="">
+                            </div>""
+
+                            <div class="item">
+                                <img class="slide-image" src="~/Images/e12ab41303db9c8e133687dacdc43e3d--wallpaper-sky-nature-wallpaper.jpg" alt="">
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+
+                    <div class="col-sm-4 col-lg-4 col-md-4" data-notid="@item.Id">
+                        <div class="thumbnail">
+
+                            <img src="~/Images/a5eebe0fbab64f2a0f517bfc58bd1f93.jpg" alt="">
+                            <div class="caption">
+                                <h4>
+                                    <a href="#">@item.Baslik</a>
+                                </h4>
+                                <h6 class="text-right">
+                                    <span class="glyphicon glyphicon-user text-success"></span><b><span style="color:rebeccapurple"> @item.Kullanici.KullaniciAdi</span></b><br />
+                                    <span class="glyphicon glyphicon-time">@item.DegistirmeTarihi.ToString("dd.MM.yy HH:mm")</span><br />
+                                </h6>
+                                @if (!string.IsNullOrEmpty(item.Text) && item.Text.Length > 100)
+                                {
+                                    <p>@item.Text.Substring(0, 100)<a href="#" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-book" style="color:deeppink" data-toggle="modal" data-target="#modal2" data-notid="@item.Id"></span>Devamı...</a></p>
+                                }
+                                else
+                                {
+                                    <p>@item.Text</p>
+                                }
+                            </div>
+                            <hr />
+                            <div class="ratings">
+                                <p class="pull-right">
+                                    <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal1" data-notid="@item.Id"><span class="glyphicon glyphicon-comment"></span>  Yorumlar</button>
+                                </p>
+                                <p>
+                                    <button class="btn btn-default btn-xs text-danger" data-notid="@item.Id" data-like="false">
+                                        <span class="glyphicon glyphicon-heart-empty text-danger like-kalp"></span><span class="begenisayisi">@item.BegeniSayisi</span>
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section footer{
+    @Html.Partial("_PartialPageFooter")
+
+}
+@BootstrapHelper.ModalPoppup("modal1", "Yorumlar")
+@BootstrapHelper.ModalPoppup("modal2", "NotlarDetay")
+
+<script src="~/Scripts/JavaScriptFile.js"></script>
+<script src="~/Scripts/ScriptLike.js"></script>
+
+<script>
+    var notid = -1;
+    $(function () {
+        $('#modal2').on('show.bs.modal', function (e) {
+            var button = $(e.relatedTarget);
+            notid = button.data("notid");
+            $('#modal2_body').load("/Not/NotDetay/" + notid);
+        });
+    });
+</script>

@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Makale_Entities.Not>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Notlar</h2>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <p>
+            <a href="/Not/Create" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Yeni Kayıt</a>
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kullanici.KullaniciAdi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kategori.Baslik)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Baslik)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Text)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Taslak)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BegeniSayisi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KayitTarihi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DegistirmeTarihi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DegistirenKullanici)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kullanici.KullaniciAdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kategori.Baslik)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Baslik)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Taslak)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BegeniSayisi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KayitTarihi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DegistirmeTarihi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DegistirenKullanici)
+                    </td>
+                    <td>
+                        <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#modal1" data-notid="@item.Id"><span class="glyphicon glyphicon-comment"></span></button>
+                        @BootstrapHelper.Linkbuton("/Not/Edit/" + item.Id, "warning", "btn-xs", "edit", "")
+                        @BootstrapHelper.Linkbuton("/Not/Details/" + item.Id, "info", "btn-xs", "search", "")
+                        @BootstrapHelper.Linkbuton("/Not/Delete/" + item.Id, "danger", "btn-xs", "trash", "")
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+@BootstrapHelper.ModalPoppup("modal1", "Yorumlar")
+
+<script src="~/Scripts/JavaScriptFile.js"></script>

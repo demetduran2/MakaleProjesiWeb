@@ -1,0 +1,57 @@
+﻿@model Makale_Entities.Kategori
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Kategori Sil</h2>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h3>Bu kategoriyi silmek istediğinizen emin misiniz?</h3>
+        <div>
+            <hr />
+            <h4>Kategori</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Baslik)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Baslik)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Aciklama)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Aciklama)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+            <a href="/Kategori/Index" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span>Listeye Dön</a>
+            @*@Html.ActionLink("Back to List", "Index")*@
+        </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+

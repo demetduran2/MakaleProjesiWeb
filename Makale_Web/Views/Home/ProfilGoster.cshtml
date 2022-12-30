@@ -1,0 +1,36 @@
+﻿@model Kullanici
+@{
+    ViewBag.Title = "Profiliniz";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Profiliniz</h2>
+        <hr />
+        <div class="col-md-2">
+            <img src="~/Images/@Model.ProfilResim" class="img-circle" width="100" height="100" />
+        </div>
+        <div class="col-md-8">
+            @Html.ValidationSummary(false)
+            <br />
+            <h3>@(Model.Ad+" "+Model.Soyad)</h3>
+            <br />
+            <h4><b>Kullanıcı Adı: </b>@(Model.KullaniciAdi)</h4>
+            <br />
+            <h4><b>Email: s</b>@(Model.Email)</h4>
+        </div>
+        <div class="col-md-2">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Seçenekler
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="/Home/ProfilDegistir"><span class="glyphicon glyphicon-edit"></span>Degistir</a></li>
+                    <li><a href="/Home/ProfilSil" onclick="return confirm ('Hesabı silmek istediğinize emin misiniz?')"><span class="glyphicon glyphicon-trash"></span>Sil</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

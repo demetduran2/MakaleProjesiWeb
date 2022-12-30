@@ -1,0 +1,90 @@
+/*!
+ * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 210px;
+    overflow: hidden;
+}
+
+    .caption h4 {
+        white-space: nowrap;
+    }
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+    .ratings button {
+        color: purple;
+    }
+
+        .ratings button:hover {
+            color: mediumpurple;
+        }
+
+.thumbnail {
+    font-family: 'Comic Sans MS';
+    padding: 0;
+    background-color: lavender;
+    border-width: 10px thick;
+    border-style: dotted;
+    border-color: mediumpurple;
+}
+
+    .thumbnail .caption-full {
+        padding: 9px;
+        color: #333;
+    }
+
+.footer {
+    margin: 50px 0;
+}
+
+.validation-summary-error {
+    border: 2px dotted #808080;
+    background-color: #808080;
+    border-radius: 8px;
+}
+
+.butonhizalama {
+    right: -30px;
+}
+
+.validation-summary-errors {
+    border: 2px dotted #808080 !important;
+    background-color: #808080;
+    border-radius: 8px;
+    margin-bottom:8px;
+}
+
+    .validation-summary-errors ul {
+        padding: 1px;
+        list-style-type: none;
+        color: #ffffff;
+    }

@@ -1,0 +1,51 @@
+﻿@model Makale_Entities.Kategori
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Kategori Değiştir</h2>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(false)
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Baslik, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Baslik, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Aciklama, new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Kaydet" class="btn btn-success" />
+                        @*<a href="/Kategori/Index" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span>Listeye Dön</a>*@
+                        @BootstrapHelper.Button("submit", "Listeye Dön", "warning", "floppy-disk")
+                        @*@BootstrapHelper.Linkbuton("/Kategori/Index", "warning", string.Empty, "", "Listeye Dön")*@
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

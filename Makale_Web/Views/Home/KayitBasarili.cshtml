@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "KayitBasarili";
+}
+
+<h2>KayitBasarili</h2>
+
+
+<div class="container">
+    <div class="text-success">
+        <p>
+           Kayıt işlemi gerçekleştirildi. Aktivasyon için mailinizi kontrol ediniz.
+        </p>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $("footer").parent.hide();
+        setTimeout(function () { window.location = "/Home/Index" }, 5000);
+    });
+</script>

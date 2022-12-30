@@ -1,0 +1,22 @@
+﻿@model Not
+
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="text-center">@Model.Baslik</h3>
+    </div>
+    <div class="col-md-12">
+        <hr />
+    </div>
+    <div class="col-md-12">
+        <h6 class="text-right">
+            @Model.Kullanici.KullaniciAdi<span class="glyphicon glyphicon-user text-success"></span><b><span style="color:rebeccapurple"></span></b><br />
+            @Model.DegistirmeTarihi.ToString("dd.MM.yy HH:mm")<span class="glyphicon glyphicon-time"></span><br />
+        </h6>
+    </div>
+    <div class="col-md-12">
+        <hr />
+    </div>
+    <div class="col-md-12">
+        <p>@Model.Text</p>
+    </div>
+</div>
